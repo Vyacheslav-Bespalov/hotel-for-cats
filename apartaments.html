@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Котейка - уютная гостиница для котов и кошек</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#746a4f">
+    <meta name="msapplication-config" content="img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/style.min.css">
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" async>
+    </script>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="header__nav">
+            <a class="logo header__logo" href="index.html">
+                <img class="logo__image" src="./img/logo.svg" alt="">
+            </a>
+            <button class="header__menu-button" type="button"></button>
+            <ul class="header-menu">
+                <li class="header-menu__item">
+                    <a class="header-menu__link" href="index.html#features">Почему мы?</a>
+                </li>
+                <li class="header-menu__item">
+                    <a class="header-menu__link" href="index.html#apartaments">Номера</a>
+                </li>
+                <li class="header-menu__item">
+                    <a class="header-menu__link" href="index.html#feedback">Отзывы</a>
+                </li>
+                <li class="header-menu__item nav-menu__item--mobile-disabled">
+                    <a class="header-menu__link" href="index.html#contacts">Как нас найти</a>
+                </li>
+                <li class="header-menu__item header-menu__mobile-contacts">
+                    <div class="header-contacts">
+                        <h2 class="header-contacts__title">Контакты</h2>
+                        <a class="header-contacts__phone" href="tel:8800333-55-99">8 (800) 333-55-99</a>
+                        <ul class="social-list">
+                            <li class="social-list__item">
+                                <a class="social-list__link social-list__link--facebook"
+                                    href="https://www.facebook.com/">Фейсбук</a>
+                            </li>
+                            <li class="social-list__item">
+                                <a class="social-list__link social-list__link--instagram"
+                                    href="https://www.instagram.com/">Инстаграм</a>
+                            </li>
+                            <li class="social-list__item">
+                                <a class="social-list__link social-list__link--vk" href="https://vk.com/">Вконтакте</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="catalog-apartaments">
+
+            <div class="catalog-apartaments__header">
+                <h1 class="catalog-apartaments__title">Наши номера</h1>
+                <div class="catalog-apartaments__controls">
+                    <button class="catalog-apartaments__filter-button" type="button">Фильтры</button>
+                    <div class="catalog-apartaments__sort-button custom-select" type="button" tabindex="0">
+                        <div class="custom-select__current">
+                            <span class="custom-select__item custom-select__item--area-up" data-value="area-up">По
+                                площади</span>
+                        </div>
+
+                        <div class="custom-select__list custom-select__list--hidden">
+                            <span class="custom-select__item custom-select__item--area-up" data-value="area-up"
+                                tabindex="0">По площади</span>
+                            <span class="custom-select__item custom-select__item--area-down" data-value="area-down"
+                                tabindex="0">По площади</span>
+                            <span class="custom-select__item custom-select__item--price-up" data-value="price-up"
+                                tabindex="0">По цене</span>
+                            <span class="custom-select__item custom-select__item--price-down" data-value="price-down"
+                                tabindex="0">По цене</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="catalog-apartaments__wrap">
+                <div class="popup-filter popup-filter--close">
+                    <div class="popup-content">
+                        <div class="filter catalog-apartaments__filter">
+                            <!-- catalog-apartaments__filter--close -->
+
+                            <!-- <div class="filter-close-wrap"> -->
+                            <button class="filter__close popup-close-button" type="button">Закрыть фильтр</button>
+                            <!-- </div> -->
+
+                            <form class="filter__form" action="#">
+
+                                <div class="filter__price">
+                                    <fieldset>
+                                        <legend class="subsection-title">Цена за сутки,<span
+                                                class="subsection-title__symbol"></span>
+                                            &#8381;</span></legend>
+                                        <div class="price-button-wrap">
+                                            <input class="price-input" type="number" name="price-min"
+                                                placeholder="от 100" min="100" max="600">
+                                            <input class="price-input" type="number" name="price-max"
+                                                placeholder="до 600" min="100" max="600">
+                                        </div>
+                                    </fieldset>
+                                </div>
+
+                                <div class="filter__area">
+                                    <fieldset>
+                                        <legend class="subsection-title">Площадь</legend>
+                                        <ul class="filter-list">
+                                            <li class="filter-list__item">
+                                                <input class="filter__input" type="checkbox" id="area-1" name="area"
+                                                    value="0.63">
+                                                <label class="filter__label" for="area-1">0,63 м2</label>
+                                            </li>
+                                            <li class="filter-list__item">
+                                                <input class="filter__input" type="checkbox" id="area-2" name="area"
+                                                    value="0.90">
+                                                <label class="filter__label" for="area-2">0,90 м2</label>
+                                            </li>
+                                            <li class="filter-list__item">
+                                                <input class="filter__input" type="checkbox" id="area-3" name="area"
+                                                    value="1.25">
+                                                <label class="filter__label" for="area-3">1,25 м2</label>
+                                            </li>
+                                            <li class="filter-list__item">
+                                                <input class="filter__input" type="checkbox" id="area-4" name="area"
+                                                    value="1.56">
+                                                <label class="filter__label" for="area-4">1,56 м2</label>
+                                            </li>
+                                            <li class="filter-list__item">
+                                                <input class="filter__input" type="checkbox" id="area-5" name="area"
+                                                    value="2.56">
+                                                <label class="filter__label" for="area-5">2,56 м2</label>
+                                            </li>
+                                            <li class="filter-list__item">
+                                                <input class="filter__input" type="checkbox" id="area-6" name="area"
+                                                    value="2.88">
+                                                <label class="filter__label" for="area-6">2,88 м2</label>
+                                            </li>
+                                        </ul>
+                                    </fieldset>
+                                </div>
+
+                                <div class="filter__equipment">
+                                    <fieldset>
+                                        <legend class="subsection-title">Оснащение номера</legend>
+                                        <ul class="filter-list">
+                                            <li class="filter-list__item">
+                                                <input class="filter__input" type="checkbox" id="equipment-1"
+                                                    name="equipment" value="empty">
+                                                <label class="filter__label" for="equipment-1">Пустой номер</label>
+                                            </li>
+                                            <li class="filter-list__item">
+                                                <input class="filter__input" type="checkbox" id="equipment-2"
+                                                    name="equipment" value="sunbed">
+                                                <label class="filter__label" for="equipment-2">Лежак</label>
+                                            </li>
+                                            <li class="filter-list__item">
+                                                <input class="filter__input" type="checkbox" id="equipment-3"
+                                                    name="equipment" value="scratching">
+                                                <label class="filter__label" for="equipment-3">Когтеточка</label>
+                                            </li>
+                                            <li class="filter-list__item">
+                                                <input class="filter__input" type="checkbox" id="equipment-4"
+                                                    name="equipment" value="game-complex">
+                                                <label class="filter__label" for="equipment-4">Игровой-комплекс</label>
+                                            </li>
+                                            <li class="filter-list__item">
+                                                <input class="filter__input" type="checkbox" id="equipment-5"
+                                                    name="equipment" value="lodge">
+                                                <label class="filter__label" for="equipment-5">Домик</label>
+                                            </li>
+                                        </ul>
+                                    </fieldset>
+                                </div>
+
+                                <div class="filter-buttons">
+                                    <button class="filter-button filter-buttons__apply" type="submit">Применить</button>
+                                    <button class="filter-button filter-buttons__reset" type="reset">Сбросить
+                                        фильтр</button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="catalog-apartaments__list" id="apartaments__list">
+
+
+
+                    <!-- <div class="catalog-item catalog-apartaments__item">
+
+                        <div class="image-container">
+
+                            <img class="catalog-item__image" src="img/apartaments-catalog/catalog-list/catalog-econom.jpg"
+                                alt="Изображение номера">
+
+                        </div>
+
+                        <div class="catalog-item__description">
+
+                            <h2 class="catalog-item__title"></h2>
+                            <div class="catalog-item__parameters">
+
+                                <p class="catalog-item__parameter">Размеры (ШхГхВ) - <span
+                                        class="catalog-item__size"></span> см</p>
+                                <p class="catalog-item__parameter">Площадь - <span class="catalog-item__area"></span> м2</p>
+
+                                <div class="equipment-wrap">
+
+                                    <p class="catalog-item__parameter">Оснащение номера</p>
+                                    <ul class="equipment-list catalog-item__equipment">
+                                        <li class="equipment-list__item"></li>
+                                    </ul>
+
+                                </div>
+
+                                <p class="catalog-item__parameter">Цена за сутки: <span class="catalog-item__price"></span>
+                                    ₽</p>
+
+                            </div>
+
+                        </div>
+
+                        <a class="catalog-item__link" href="">Забронировать</a>
+
+                    </div> -->
+
+
+
+                </div>
+            </div>
+
+
+        </section>
+
+        <section class="banner">
+            <div class="banner__body">
+                <div class="banner__content">
+                    <h2 class="banner__title">Каждый 7-й день<br>
+                        <strong class="banner__accent">
+                            бесплатно!
+                        </strong>
+                    </h2>
+                    <p class="banner__text">
+                        Акция действует при размещении<br>
+                        в номерах “Люкс” и “Супер-Люкс”
+                    </p>
+                    <a class="bunner__button cover-button">Забронировать</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="contacts" id="contacts">
+            <div class="contacts__text">
+                <h2 class="section-title contacts__title">Как нас найти</h2>
+                <div class="contacts-item contacts__address">
+                    <h3 class="contacts-item__title">Адрес</h3>
+                    <p class="contacts-item__text">
+                        Санкт-Петербург,<br> ул Большая Конюшенная, д 19
+                    </p>
+                </div>
+                <div class="contacts-item contacts__work-mode">
+                    <h3 class="contacts-item__title">Режим работы</h3>
+                    <p class="contacts-item__text">Ежедневно, с 9:00 до 20:00</p>
+                </div>
+                <div class="contacts-item contacts__phone">
+                    <h3 class="contacts-item__title">Телефон</h3>
+                    <a class="contacts-item__link" href="tel:8800333-55-99">8 (800) 333-55-99</a>
+                </div>
+                <div class="contacts-item contacts__email">
+                    <h3 class="contacts-item__title">E-mail</h3>
+                    <a class="contacts-item__link" href="mailto:info@cat-hotel.ru">info@cat-hotel.ru</a>
+                </div>
+                <div class="contacts-item contacts__social">
+                    <h3 class="contacts-item__title">Социальные сети</h3>
+                    <ul class="social-list contacts-item__social-list social-list--smaller-distance">
+                        <li class="social-list__item">
+                            <a class="social-list__link social-list__link--facebook"
+                                href="https://www.facebook.com/">Фейсбук</a>
+                        </li>
+                        <li class="social-list__item">
+                            <a class="social-list__link social-list__link--instagram"
+                                href="https://www.instagram.com/">Инстаграм</a>
+                        </li>
+                        <li class="social-list__item">
+                            <a class="social-list__link social-list__link--vk" href="https://vk.com/">Вконтакте</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Карта сделана через яндекс API -->
+            <div class="contacts__map" id="map"></div>
+        </section>
+
+    </main>
+
+
+
+    <footer class="footer">
+        <nav class="footer__nav">
+            <a class="logo footer__logo" href="">
+                <img class="logo__image" src="./img/logo.svg" alt="">
+            </a>
+            <ul class="footer-menu">
+                <li class="footer-menu__item">
+                    <a class="footer-menu__link" href="index.html#features">Почему мы?</a>
+                </li>
+                <li class="footer-menu__item">
+                    <a class="footer-menu__link" href="index.html#apartaments">Номера</a>
+                </li>
+                <li class="footer-menu__item">
+                    <a class="footer-menu__link" href="index.html#feedback">Отзывы</a>
+                </li>
+                <li class="footer-menu__item">
+                    <a class="footer-menu__link" href="index.html#contacts">Как нас найти</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            <span class="copyright__rights" title="2019 Все права защищены">2019 Все права защищены</span>
+            <span class="copyright__privacy">Политика конфиденциальности</span>
+        </div>
+    </footer>
+
+    <template id="catalog-item-template">
+        <div class="catalog-item catalog-apartaments__item">
+            <div class="image-container">
+                <img class="catalog-item__image" src="" alt="Изображение номера">
+            </div>
+
+            <div class="catalog-item__description-wrap">
+                <div class="catalog-item__description">
+                    <h2 class="catalog-item__title"></h2>
+                    <div class="catalog-item__parameters">
+                        <p class="catalog-item__parameter">Размеры (ШхГхВ) - <span class="catalog-item__size"></span> см
+                        </p>
+                        <p class="catalog-item__parameter">Площадь - <span class="catalog-item__area"></span> м2</p>
+                        <div class="equipment-wrap">
+                            <p class="catalog-item__parameter">Оснащение номера</p>
+                            <ul class="equipment-list catalog-item__equipment">
+                                <!-- <li class="equipment-list__item">
+                                    <img class="equipment-list__image" src="" alt="Фото номера">
+                                    <p class="equipment-list__title"></p>
+                                </li> -->
+                            </ul>
+                        </div>
+                        <p class="catalog-item__parameter">
+                            Цена за сутки:
+                            <span class="catalog-item__price"></span><span class="catalog-item__price">₽</span></p>
+                    </div>
+                </div>
+                <div class="catalog-item__link-wrap">
+                    <a class="catalog-item__link" href="">Забронировать</a>
+                </div>
+            </div>
+
+
+        </div>
+    </template>
+
+
+    <script src="js/swiper.min.js"></script>
+    <script src="js/script.min.js"></script>
+    <script src="js/catalog-apartaments.min.js"></script>
+</body>
+
+</html>
